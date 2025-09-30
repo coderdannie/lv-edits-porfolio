@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ExternalLink } from "lucide-react";
 import { personalProjects, teamProjects } from "../components/common/constants";
 
@@ -16,8 +16,26 @@ interface Project {
 
 const Projects: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"team" | "personal">("team");
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const projects: Project[] =
     activeTab === "team" ? teamProjects : personalProjects;
+
+  // Preload all images when component mounts
+  useEffect(() => {
+    const allProjects = [...teamProjects, ...personalProjects];
+    const imagePromises = allProjects.map((project) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = project.image;
+        img.onload = resolve;
+        img.onerror = resolve; // Resolve even on error to not block the UI
+      });
+    });
+
+    Promise.all(imagePromises).then(() => {
+      setImagesLoaded(true);
+    });
+  }, []);
 
   return (
     <section
@@ -73,6 +91,12 @@ const Projects: React.FC = () => {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover bg-top transition-transform duration-700 group-hover:scale-110"
+                  loading="eager" // Force eager loading
+                  onLoad={(e) => {
+                    // Image loaded successfully
+                    const target = e.target as HTMLImageElement;
+                    target.classList.add("opacity-100");
+                  }}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = "none";
@@ -82,12 +106,23 @@ const Projects: React.FC = () => {
                       "justify-center"
                     );
                   }}
+                  style={{
+                    opacity: imagesLoaded ? 1 : 0,
+                    transition: "opacity 0.3s ease-in",
+                  }}
                 />
                 {/* Gradient overlay that appears on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Loading skeleton */}
+                {!imagesLoaded && (
+                  <div className="absolute inset-0 bg-gray-800 animate-pulse flex items-center justify-center">
+                    <div className="text-gray-500">Loading...</div>
+                  </div>
+                )}
               </div>
 
-              {/* Content Section - Dark Box */}
+              {/* Rest of your content remains the same */}
               <div className="relative bg-black/40 backdrop-blur-md border border-white/5 rounded-[24px] -mt-8 p-6">
                 {/* Header with View Website Button */}
                 <div className="flex flex-col md:flex-row gap-3 md:gap-1 items-start justify-between mb-4">

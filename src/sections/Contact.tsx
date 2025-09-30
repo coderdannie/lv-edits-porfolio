@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
           {/* Center dot */}
           <div className="bg-[#0B7410] w-3 aspect-square rounded-full relative z-10 animate-pulse"></div>
         </div>
-        <h2 className="font-secondary text-2xl">Available for work</h2>
+        <h2 className="font-secondary text-2xl">Available to work</h2>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mt-12 lg:mt-16">
