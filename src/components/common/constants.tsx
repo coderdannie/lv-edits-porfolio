@@ -96,6 +96,7 @@ export const teamProjects = [
       "React.js",
       "Redux",
       "Chakra UI",
+      "React Query",
       "Third-party Widgets (Face Capture)",
     ],
     highlights: [
