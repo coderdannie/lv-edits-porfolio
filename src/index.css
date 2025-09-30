@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+@import "tailwindcss";
+
+Chrome,
+Safari,
+and Opera ::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 8px;
+  background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+/* Firefox */
+/* For Firefox 64+ */
+* {
+  scrollbar-color: black rgba(0, 0, 0, 0.05);
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+/* For Firefox 63 and below */
+* {
+  scrollbar-color: black rgba(0, 0, 0, 0.05);
+}
+
+/* Microsoft Edge and IE */
+* {
+  -ms-overflow-style: none; /* Hide the scrollbar in IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 8px;
+  background-color: black;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #ffff;
+  background-color: #000;
+}
+
+.font-secondary {
+  font-family: "DM Sans", sans-serif;
+}
+@layer components {
+  .align-element {
+    @apply max-w-[78rem] w-full mx-auto px-5 lg:px-[50px];
+  }
+}
+
+.font-heading {
+  font-size: clamp(1.4rem, 3vw + 1rem, 2.8rem);
+  @apply font-semibold max-w-[700px] w-full mx-auto;
+  line-height: 1.2;
+}
+
+.font-sub-heading {
+  font-size: clamp(1.3rem, 2.5vw + 0.8rem, 2.2rem);
+  @apply font-medium  w-full mx-auto;
+  line-height: 1.2;
+}
+
+.header {
+  background-color: #000000;
+  background-image: url("/assets/image.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: overlay;
+  /* Alternative blend modes you can try:
+  background-blend-mode: multiply;
+  background-blend-mode: soft-light;
+  background-blend-mode: darken;
+  */
+}
+
+.header-alternative {
+  position: relative;
+  background-color: #000000;
+}
+
+.header-alternative::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/image.png");
+  background-repeat: no-repeat;
+  background-position: left center; /* Position on the left */
+  background-size: cover;
+  opacity: 0.3; /* Adjust this value (0.1 to 0.5) for desired blend */
+  z-index: 0;
+}
+
+.header-alternative > * {
+  position: relative;
+  z-index: 1;
+}
