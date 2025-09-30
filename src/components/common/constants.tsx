@@ -112,18 +112,17 @@ export const teamProjects = [
     category: "Team Project",
     role: "Frontend Developer",
     description:
-      "Designed and implemented responsive user interfaces to enhance user engagement and user experience. Integrated dynamic content and optimized performance for seamless functionality across devices.",
+      "A platform where designers enhance their skills by taking up daily challenges. UX Thrive provides curated design challenges, real-world projects, and skill-building exercises to help designers grow consistently and stay sharp in their craft.",
     image: "/assets/projects/uxthrive.png",
     technologies: ["ReactJs", "TailwindCSS", "Zustand", "TypeScript"],
     highlights: [
-      "Improved UI responsiveness across multiple device breakpoints",
-      "Reduced page loading time by optimizing asset delivery",
-      "Received positive feedback from users and stakeholders",
+      "Built interactive challenge interface with real-time progress tracking",
+      "Implemented responsive design for seamless mobile and desktop experience",
+      "Created user-friendly dashboard for challenge management and submissions",
     ],
     websiteUrl: "https://uxthrive.org",
     githubUrl: "",
   },
-
   {
     id: 4,
     title: "Paycita",
@@ -149,11 +148,11 @@ export const teamProjects = [
   },
   {
     id: 3,
-    title: "Edupall",
+    title: "Edupali",
     category: "Team Project",
     role: "Frontend Developer",
     description:
-      "Contributed to the development of Edupall, a fintech app designed to provide seamless financial services for school.",
+      "Contributed to the development of Edupali, a fintech app designed to provide seamless financial services for school.",
     image: "/assets/projects/edupali.png",
     technologies: ["React.js", "Redux", "Chakra UI", "React Query"],
     highlights: [
