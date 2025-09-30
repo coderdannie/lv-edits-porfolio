@@ -43,9 +43,14 @@ const Nav = () => {
         {/* Logo */}
         <a href="/" className="block z-[102] relative">
           <div className="flex items-center gap-2">
-            <div className="w-[54px] h-[54px] rounded-full aspect-square">
+            <div className="w-[54px] h-[54px] overflow-hidden rounded-full aspect-square">
               <img
-                className="object-contain"
+                className="object-cover w-full h-full md:hidden"
+                src="/assets/img.png"
+                alt="Emmanuel Daniel Logo"
+              />
+              <img
+                className="object-contain hidden md:block w-full h-full"
                 src="/assets/logo.svg"
                 alt="Emmanuel Daniel Logo"
               />
