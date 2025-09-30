@@ -114,7 +114,13 @@ export const teamProjects = [
     description:
       "A platform where designers enhance their skills by taking up daily challenges. UX Thrive provides curated design challenges, real-world projects, and skill-building exercises to help designers grow consistently and stay sharp in their craft.",
     image: "/assets/projects/uxthrive.png",
-    technologies: ["ReactJs", "TailwindCSS", "Zustand", "TypeScript"],
+    technologies: [
+      "ReactJs",
+      "TailwindCSS",
+      "Daisy UI",
+      "React query",
+      "TypeScript",
+    ],
     highlights: [
       "Built interactive challenge interface with real-time progress tracking",
       "Implemented responsive design for seamless mobile and desktop experience",
@@ -137,6 +143,7 @@ export const teamProjects = [
       "Redux",
       "React Query",
       "TailwindCSS",
+      "Shadcn",
     ],
     highlights: [
       "Built role-based dashboards with dynamic financial data visualization",
