@@ -29,7 +29,7 @@ const About = () => {
         <p>Tech is always evolving. So am I.</p>
       </div>
       <div className="pt-[40px]">
-        <img src="/assets/coderdannie.svg" alt="Emmanuel Daniel" />
+        <img src="/assets/img.png" alt="Emmanuel Daniel" />
       </div>
     </section>
   );
