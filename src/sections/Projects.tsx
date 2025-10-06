@@ -41,7 +41,7 @@ const Projects: React.FC = () => {
     <section
       id="projects"
       title="Projects"
-      className="pb-[40px] md:py-24 px-6 bg-black min-h-screen"
+      className="pt-24 md:pt-32 pb-[40px] md:pb-24 px-6 bg-black min-h-screen"
     >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-center font-heading text-4xl md:text-5xl text-white mb-12">
