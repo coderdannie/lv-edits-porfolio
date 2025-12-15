@@ -14,7 +14,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-6 md:px-12 max-w-7xl mx-auto py-16 md:py-20">
+      <div className="relative z-10 w-full px-6 md:px-12 max-w-7xl mx-auto py-12 pt-0 md:py-20">
         <div className="max-w-3xl">
           {/* Caption: Reduced text-sm -> text-xs, md:text-base -> md:text-sm */}
           <p className="text-[#FF6B5A] text-xs md:text-sm font-bold tracking-[0.3em] mb-6 uppercase animate-fade-in-up">
