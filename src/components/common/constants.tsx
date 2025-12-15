@@ -1,7 +1,7 @@
 import { FaFacebook, FaGithub } from "react-icons/fa6";
 import { AiFillLinkedin } from "react-icons/ai";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import { BsInstagram } from "react-icons/bs";
+import { BsInstagram, BsWhatsapp } from "react-icons/bs";
 import { Mail } from "lucide-react";
 
 export const navItems = [
@@ -80,6 +80,11 @@ export const socialIcons = [
   {
     icon: <Mail className="w-6 h-6" />,
     href: "lvedits542@gmail.com",
+    name: "Email",
+  },
+  {
+    icon: <BsWhatsapp className="w-6 h-6" />,
+    href: "https://wa.me/2347053436271",
     name: "Email",
   },
 ];

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Video, Film, Camera, Sparkles, Play, ArrowRight } from "lucide-react";
+import ContactModal from "../components/Modal/ContactModal";
 
 interface Service {
   id: string;
@@ -13,6 +14,7 @@ interface Service {
 
 const ServicesSection: React.FC = () => {
   const [hoveredService, setHoveredService] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const services: Service[] = [
     {
@@ -112,6 +114,10 @@ const ServicesSection: React.FC = () => {
     },
   ];
 
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <section className="min-h-screen bg-black py-16 md:py-20 px-6 md:px-12">
       {/* Header */}
@@ -194,7 +200,10 @@ const ServicesSection: React.FC = () => {
               </ul>
 
               {/* CTA Button - Size Reduced */}
-              <button className="w-full py-3.5 bg-[#FF6B5A] hover:bg-[#ff5544] text-white font-bold uppercase text-xs tracking-wider transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#FF6B5A]/30 flex items-center justify-center gap-2">
+              <button
+                className="w-full py-3.5 bg-[#FF6B5A] hover:bg-[#ff5544] text-white font-bold uppercase text-xs tracking-wider transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#FF6B5A]/30 flex items-center justify-center gap-2 cursor-pointer"
+                onClick={handleModalOpen}
+              >
                 Learn More
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
@@ -214,10 +223,17 @@ const ServicesSection: React.FC = () => {
         <p className="text-sm md:text-base text-gray-400 mb-6 max-w-xl mx-auto">
           We create custom video solutions tailored to your unique vision
         </p>
-        <button className="px-8 py-4 bg-[#FF6B5A] hover:bg-[#ff5544] text-white font-bold uppercase text-xs md:text-sm tracking-wider transition-all duration-300 hover:shadow-xl hover:shadow-[#FF6B5A]/30">
+        <button
+          className="px-8 py-4 bg-[#FF6B5A] hover:bg-[#ff5544] text-white font-bold uppercase text-xs md:text-sm tracking-wider transition-all duration-300 hover:shadow-xl hover:shadow-[#FF6B5A]/30 cursor-pointer"
+          onClick={handleModalOpen}
+        >
           Get a Custom Quote
         </button>
       </div>
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 };
