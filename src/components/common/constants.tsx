@@ -1,6 +1,8 @@
-import { FaGithub } from "react-icons/fa6";
+import { FaFacebook, FaGithub } from "react-icons/fa6";
 import { AiFillLinkedin } from "react-icons/ai";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { BsInstagram } from "react-icons/bs";
+import { Mail } from "lucide-react";
 
 export const navItems = [
   {
@@ -8,12 +10,12 @@ export const navItems = [
     href: "#home", // or just "#" for home
   },
   {
-    name: "Projects",
-    href: "#projects",
+    name: "Gallery",
+    href: "#portfolio",
   },
   {
-    name: "About",
-    href: "#about",
+    name: "Services",
+    href: "#services",
   },
   {
     name: "Contact",
@@ -66,22 +68,21 @@ export const techStacks = [
 
 export const socialIcons = [
   {
-    icon: <AiFillLinkedin />,
-    href: "https://www.linkedin.com/in/coderdannie",
-    name: "Linkedln",
+    icon: <BsInstagram className="w-6 h-6" />,
+    href: "https://www.instagram.com/lvedits2025?igsh=ZWw4MjRxc3pkMmd4&utm_source=qr",
+    name: "Instagram",
   },
   {
-    icon: <FaGithub />,
-    href: "https://github.com/coderdannie",
-    name: "github",
+    icon: <FaFacebook className="w-6 h-6" />,
+    href: "https://www.facebook.com/share/1Degqnwp6x/?mibextid=wwXIfr",
+    name: "Facebook",
   },
   {
-    icon: <FaSquareXTwitter />,
-    href: "https://x.com/coderdannie",
-    name: "twitter",
+    icon: <Mail className="w-6 h-6" />,
+    href: "lvedits542@gmail.com",
+    name: "Email",
   },
 ];
-
 // Team Projects
 export const teamProjects = [
   {

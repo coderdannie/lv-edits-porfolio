@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { Mail, Instagram, Facebook } from "lucide-react";
 import { useForm, ValidationError } from "@formspree/react";
-import { socialIcons } from "../components/common/constants";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { socialIcons } from "../components/common/constants";
 
 interface FormErrors {
   email?: {
@@ -19,198 +20,213 @@ interface FormErrors {
 }
 
 const Contact: React.FC = () => {
-  const [state, handleSubmit] = useForm("mqayqyye");
+  const [state, handleSubmit] = useForm("xqaropwk");
+  const [isSuccess, setIsSuccess] = useState(false);
   const { ref: sectionRef, isVisible: sectionVisible } =
     useScrollAnimation(0.1);
 
-  // Type assertion for errors
   const errors = state.errors as FormErrors;
 
   return (
     <section
-      ref={sectionRef}
       id="contact"
-      title="Contact"
-      className="align-element py-[40px] md:py-[100px]"
+      className="min-h-screen bg-black py-20 px-6 md:px-12"
+      ref={sectionRef}
     >
-      {/* Available Badge */}
-      <div
-        className={`flex justify-center items-center gap-2 mx-auto rounded-tl-2xl rounded-br-2xl bg-white/5 hover:bg-white/10 w-fit border border-white/10 transition-all text-sm text-white whitespace-nowrap px-6 py-3 scroll-animate animate-slide-up ${
-          sectionVisible ? "animated" : ""
-        }`}
-      >
-        <div className="relative rounded-full border grid place-items-center border-[#0B7410] w-5 aspect-square">
-          {/* Pulsing rings */}
-          <div className="absolute inset-0 rounded-full border-2 border-[#0B7410] animate-ping opacity-75"></div>
-          <div className="absolute inset-0 rounded-full border border-[#0B7410] animate-pulse"></div>
-
-          {/* Center dot */}
-          <div className="bg-[#0B7410] w-3 aspect-square rounded-full relative z-10 animate-pulse"></div>
-        </div>
-        <h2 className="font-secondary text-2xl">Available to work</h2>
-      </div>
-
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mt-12 lg:mt-16">
-        {/* Left Content */}
-        <div className="lg:w-1/2 space-y-6">
-          <h3
-            className={`font-sub-heading text-2xl md:text-3xl lg:text-4xl text-white scroll-animate animate-slide-left ${
-              sectionVisible ? "animated delay-200" : ""
-            }`}
-          >
-            Get in Touch
-          </h3>
-          <p
-            className={`text-[#9E9E9E] text-base md:text-xl leading-relaxed scroll-animate animate-slide-left ${
-              sectionVisible ? "animated delay-400" : ""
-            }`}
-          >
-            I would love to hear about your project and how I could help. Please
-            fill in the form, and I'll get back to you as soon as possible.
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-16">
+          <p className="text-[#FF6B5A] text-xs md:text-sm font-bold tracking-[0.3em] mb-6 uppercase">
+            Let's Work Together
           </p>
-          <div
-            className={`flex gap-4 items-center pt-4 scroll-animate animate-slide-left ${
-              sectionVisible ? "animated delay-600" : ""
-            }`}
-          >
-            {socialIcons.map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-3xl text-[#BABABA] hover:text-white transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-6">
+            GET IN TOUCH
+          </h2>
+          <p className="text-gray-400 text-base md:text-lg max-w-2xl">
+            Have a project in mind? Let's create something amazing together
+          </p>
         </div>
 
-        {/* Right Content - Form */}
-        <div className="lg:w-1/2">
-          {state.succeeded ? (
-            <div
-              className={`bg-green-500/10 border border-green-500 text-green-500 px-6 py-8 rounded-2xl text-center space-y-3 scroll-animate animate-slide-up ${
-                sectionVisible ? "animated delay-200" : ""
-              }`}
-            >
-              <div className="text-5xl mb-2">✓</div>
-              <h4 className="text-xl font-semibold">
-                Message Sent Successfully!
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Left Content - Info */}
+          <div className="space-y-8">
+            {/* Available Badge */}
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-zinc-900 border border-white/10">
+              <div className="relative w-3 h-3">
+                <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75"></div>
+                <div className="absolute inset-0 bg-green-500 rounded-full"></div>
+              </div>
+              <span className="text-white text-sm font-semibold uppercase tracking-wider">
+                Available for Work
+              </span>
+            </div>
+
+            {/* Contact Info */}
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-white text-xl font-bold mb-4 uppercase tracking-tight">
+                  Contact Information
+                </h3>
+                <div className="space-y-3">
+                  <p className="text-gray-400 text-sm">
+                    Fill out the form and I'll get back to you as soon as
+                    possible
+                  </p>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div>
+                <h3 className="text-white text-xl font-bold mb-4 uppercase tracking-tight">
+                  Follow Me
+                </h3>
+                <div className="flex gap-4">
+                  {socialIcons.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-zinc-900 border border-white/10 hover:border-[#FF6B5A] flex items-center justify-center text-white hover:text-[#FF6B5A] transition-all duration-300 hover:scale-110"
+                      title={social.name}
+                    >
+                      {social.icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Info Card */}
+            <div className="bg-zinc-900 border border-white/10 p-6 mt-8">
+              <h4 className="text-white font-bold text-lg mb-3 uppercase tracking-tight">
+                Response Time
               </h4>
-              <p className="text-green-400">
-                I'll get back to you as soon as possible.
+              <p className="text-gray-400 text-sm">
+                I typically respond within 24-48 hours during business days
               </p>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div
-                className={`transform transition-all duration-300 focus-within:scale-[1.01] scroll-animate animate-slide-right ${
-                  sectionVisible ? "animated delay-200" : ""
-                }`}
-              >
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Name"
-                  required
-                  className="w-full bg-black border border-[#515151] rounded-xl px-5 py-4 text-white placeholder-[#5A5A5A] focus:outline-none focus:border-[#757575] transition-all duration-300 focus:shadow-lg focus:shadow-white/5"
-                />
-                <ValidationError
-                  prefix="Name"
-                  field="name"
-                  errors={state.errors}
-                  className="text-red-500 text-sm mt-1 block"
-                />
-              </div>
+          </div>
 
-              <div
-                className={`transform transition-all duration-300 focus-within:scale-[1.01] scroll-animate animate-slide-right ${
-                  sectionVisible ? "animated delay-400" : ""
-                }`}
-              >
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  required
-                  className="w-full bg-black border border-[#515151] rounded-xl px-5 py-4 text-white placeholder-[#5A5A5A] focus:outline-none focus:border-[#757575] transition-all duration-300 focus:shadow-lg focus:shadow-white/5"
-                />
-                <ValidationError
-                  prefix="Email"
-                  field="email"
-                  errors={state.errors}
-                  className="text-red-500 text-sm mt-1 block"
-                />
+          {/* Right Content - Form */}
+          <div>
+            {state.succeeded ? (
+              <div className="bg-green-500/10 border border-green-500 p-8 text-center space-y-4">
+                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto">
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white uppercase">
+                  Message Sent!
+                </h3>
+                <p className="text-green-400">
+                  I'll get back to you as soon as possible.
+                </p>
+                {/* <button
+                  onClick={() => setIsSuccess(false)}
+                  className="mt-4 px-6 py-2 bg-[#FF6B5A] hover:bg-[#ff5544] text-white text-sm font-bold uppercase tracking-wider transition-all duration-300"
+                >
+                  Send Another
+                </button> */}
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name */}
+                <div>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                    required
+                    className="w-full bg-zinc-900 border border-white/10 px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#FF6B5A] transition-all duration-300 uppercase text-sm tracking-wider"
+                  />
+                  <ValidationError
+                    prefix="Name"
+                    field="name"
+                    errors={state.errors}
+                    className="text-red-500 text-sm mt-1 block"
+                  />
+                </div>
 
-              <div
-                className={`transform transition-all duration-300 focus-within:scale-[1.01] scroll-animate animate-slide-right ${
-                  sectionVisible ? "animated delay-600" : ""
-                }`}
-              >
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Message"
-                  rows={5}
-                  required
-                  className="w-full bg-black border border-[#515151] rounded-xl px-5 py-4 text-white placeholder-[#5A5A5A] focus:outline-none focus:border-[#757575] transition-all duration-300 resize-none focus:shadow-lg focus:shadow-white/5"
-                />
-                <ValidationError
-                  prefix="Message"
-                  field="message"
-                  errors={state.errors}
-                  className="text-red-500 text-sm mt-1 block"
-                />
-              </div>
+                {/* Email */}
+                <div>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    className="w-full bg-zinc-900 border border-white/10 px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#FF6B5A] transition-all duration-300 uppercase text-sm tracking-wider"
+                  />
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                    className="text-red-500 text-sm mt-1 block"
+                  />
+                </div>
 
-              <div
-                className={`scroll-animate animate-slide-up ${
-                  sectionVisible ? "animated delay-800" : ""
-                }`}
-              >
+                {/* Message */}
+                <div>
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Message"
+                    rows={5}
+                    required
+                    className="w-full bg-zinc-900 border border-white/10 px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#FF6B5A] transition-all duration-300 resize-none uppercase text-sm tracking-wider"
+                  />
+                  <ValidationError
+                    prefix="Message"
+                    field="message"
+                    errors={state.errors}
+                    className="text-red-500 text-sm mt-1 block"
+                  />
+                </div>
+
+                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={state.submitting}
-                  className="w-full bg-white text-black font-medium py-4 rounded-full hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group"
-                  style={{
-                    boxShadow:
-                      "inset 0 -8px 9px 0 rgba(0, 0, 0, 0.25), 0.3em 0.3em 1em rgba(0, 0, 0, 0.5)",
-                  }}
+                  className="w-full px-10 py-5 bg-[#FF6B5A] hover:bg-[#ff5544] text-white text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="relative z-10">
-                    {state.submitting ? (
-                      <span className="flex items-center justify-center gap-2">
-                        <span className="inline-block w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
-                        Sending...
-                      </span>
-                    ) : (
-                      "Send Message"
-                    )}
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  {state.submitting ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                      SENDING...
+                    </span>
+                  ) : (
+                    "SEND MESSAGE"
+                  )}
                 </button>
-              </div>
-
-              {errors &&
-                Object.keys(errors).length > 0 &&
-                !errors.email &&
-                !errors.message &&
-                !errors.name && (
-                  <div
-                    className={`bg-red-500/10 border border-red-500 text-red-500 px-4 py-3 rounded-lg text-center scroll-animate animate-fade-up ${
-                      sectionVisible ? "animated delay-1000" : ""
-                    }`}
-                  >
-                    Something went wrong. Please try again.
-                  </div>
-                )}
-            </form>
-          )}
+                {errors &&
+                  Object.keys(errors).length > 0 &&
+                  !errors.email &&
+                  !errors.message &&
+                  !errors.name && (
+                    <div
+                      className={`bg-red-500/10 border border-red-500 text-red-500 px-4 py-3 rounded-lg text-center scroll-animate animate-fade-up ${
+                        sectionVisible ? "animated delay-1000" : ""
+                      }`}
+                    >
+                      Something went wrong. Please try again.
+                    </div>
+                  )}
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </section>

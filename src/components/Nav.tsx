@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { navItems, socialIcons } from "./common/constants";
+import { TiCamera } from "react-icons/ti";
 
 interface NavItem {
   name: string;
@@ -38,26 +39,27 @@ const Nav = () => {
   };
 
   return (
-    <nav className="bg-black py-6 sticky top-0 z-[100]">
-      <div className="flex justify-between items-center align-element">
+    <nav className=" py-6 sticky top-0 z-[100] bg-black">
+      <div className="flex justify-between items-center align-nav">
         {/* Logo */}
         <a href="/" className="block z-[102] relative">
           <div className="flex items-center gap-2">
-            <div className="w-[54px] h-[54px] overflow-hidden rounded-full aspect-square">
+            <div className=" overflow-hidden rounded-full aspect-square">
               {/* <img
                 className="object-cover w-full h-full md:hidden"
                 src="/assets/img.png"
                 alt="Emmanuel Daniel Logo"
               /> */}
-              <img
+              {/* <img
                 className="object-contain w-full h-full"
                 src="/assets/logo.svg"
                 alt="Emmanuel Daniel Logo"
-              />
+              /> */}
+              <TiCamera className="w-[34px] h-[34px]" />
             </div>
             <div className="text-sm font-semibold">
-              <p>Emmanuel</p>
-              <p>Daniel</p>
+              <p>LV Edits </p>
+              {/* <p>Daniel</p> */}
             </div>
           </div>
         </a>
@@ -77,7 +79,7 @@ const Nav = () => {
         </ul>
 
         {/* Desktop Social Icons */}
-        <div className="hidden md:flex gap-3 items-center">
+        {/* <div className="hidden md:flex gap-3 items-center">
           {socialIcons.map((social, index) => (
             <a
               key={index}
@@ -89,7 +91,7 @@ const Nav = () => {
               {social.icon}
             </a>
           ))}
-        </div>
+        </div> */}
 
         {/* Mobile Menu Button */}
         <button

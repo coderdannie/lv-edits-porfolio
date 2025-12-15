@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 
 const Header = () => {
   return (
-    <header className="min-h-screen header-alternative">
+    <header className="min-h-screen ">
       <Nav />
       <Hero />
     </header>
