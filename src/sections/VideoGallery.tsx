@@ -14,114 +14,89 @@ const VideoGallery: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
   const playerRef = useRef<any>(null);
 
+  // Helper function to extract YouTube video ID
+  const getYouTubeId = (url: string): string => {
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\?\/]+)/,
+      /youtube\.com\/watch\?.*v=([^&]+)/,
+    ];
+
+    for (const pattern of patterns) {
+      const match = url.match(pattern);
+      if (match) return match[1];
+    }
+    return "";
+  };
+
+  // Helper function to get YouTube thumbnail
+  const getYouTubeThumbnail = (
+    url: string,
+    quality: "maxres" | "hq" | "mq" | "sd" = "maxres"
+  ): string => {
+    const videoId = getYouTubeId(url);
+    if (!videoId) return "";
+
+    // Try maxresdefault first (1920x1080), fallback to hqdefault (480x360) if not available
+    const qualities = {
+      maxres: "maxresdefault.jpg",
+      hq: "hqdefault.jpg",
+      mq: "mqdefault.jpg",
+      sd: "sddefault.jpg",
+    };
+
+    return `https://img.youtube.com/vi/${videoId}/${qualities[quality]}`;
+  };
+
   const videos: Video[] = [
     {
       id: "1",
-      title: "QUIET STREET AT NIGHT",
-      thumbnail:
-        "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=bTqVqk7FSmY",
+      title: "GROOM AND BRIDE FIRST DANCE",
+      thumbnail: getYouTubeThumbnail(
+        "https://youtu.be/aRmftlic15w?si=EkvHfC-Tn0UoVrOy"
+      ),
+      videoUrl: "https://youtu.be/aRmftlic15w?si=EkvHfC-Tn0UoVrOy",
       provider: "youtube",
       span: "col-span-1",
     },
     {
       id: "2",
-      title: "URBAN PORTRAIT",
-      thumbnail:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+      title: "COOPERATE EVENT HIGHLIGHT",
+      thumbnail: getYouTubeThumbnail(
+        "https://youtu.be/ygdtoQgco9I?si=MV34-ergSHv_eWr5"
+      ),
+      videoUrl: "https://youtu.be/ygdtoQgco9I?si=MV34-ergSHv_eWr5",
       provider: "youtube",
       span: "col-span-1",
     },
     {
       id: "3",
-      title: "CITY LIGHTS",
-      thumbnail:
-        "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=LXb3EKWsInQ",
+      title: "WEDDING LOVE STORY (A)",
+      thumbnail: getYouTubeThumbnail(
+        "https://youtu.be/IsetOq3d-WE?si=Qb1tM6pIhcpFvEEh"
+      ),
+      videoUrl: "https://youtu.be/IsetOq3d-WE?si=Qb1tM6pIhcpFvEEh",
       provider: "youtube",
       span: "col-span-2",
     },
     {
       id: "4",
-      title: "URBAN ARCHITECTURE",
-      thumbnail:
-        "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      title: "WEDDING LOVE STORY (B)",
+      thumbnail: getYouTubeThumbnail(
+        "https://youtu.be/dUoIrOXESw8?si=xdisoG65em6oVpqh"
+      ),
+      videoUrl: "https://youtu.be/dUoIrOXESw8?si=xdisoG65em6oVpqh",
       provider: "youtube",
       span: "col-span-1",
     },
     {
       id: "5",
-      title: "MODERN LIFESTYLE",
-      thumbnail:
-        "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=9bZkp7q19f0",
-      provider: "youtube",
-      span: "col-span-1",
-    },
-    {
-      id: "6",
-      title: "CREATIVE PORTRAIT",
-      thumbnail:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
-      provider: "youtube",
-      span: "col-span-1",
-    },
-    {
-      id: "7",
-      title: "DOWNTOWN VIBES",
-      thumbnail:
-        "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=jNQXAC9IVRw",
-      provider: "youtube",
-      span: "col-span-1",
-    },
-    {
-      id: "8",
-      title: "STREET STYLE",
-      thumbnail:
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=YQHsXMglC9A",
+      title: "WEDDING LOVE STORY (C)",
+      thumbnail: getYouTubeThumbnail(
+        "https://youtu.be/d0afMBZKUr0?si=P3NntERvPYRhRPyM"
+      ),
+      videoUrl: "https://youtu.be/d0afMBZKUr0?si=P3NntERvPYRhRPyM",
       provider: "youtube",
       span: "col-span-2",
-    },
-    {
-      id: "9",
-      title: "NIGHT SCENE",
-      thumbnail:
-        "https://images.unsplash.com/photo-1511376777868-611b54f68947?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=OPf0YbXqDm0",
-      provider: "youtube",
-      span: "col-span-1",
-    },
-    {
-      id: "10",
-      title: "SUNSET VIEWS",
-      thumbnail:
-        "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=hT_nvWreIhg",
-      provider: "youtube",
-      span: "col-span-1",
-    },
-    {
-      id: "11",
-      title: "MOUNTAIN LANDSCAPE",
-      thumbnail:
-        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
-      provider: "youtube",
-      span: "col-span-1",
-    },
-    {
-      id: "12",
-      title: "OCEAN WAVES",
-      thumbnail:
-        "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1200&q=80",
-      videoUrl: "https://www.youtube.com/watch?v=V-_O7nl0Ii0",
-      provider: "youtube",
-      span: "col-span-1",
     },
   ];
 
@@ -190,11 +165,9 @@ const VideoGallery: React.FC = () => {
         <p className="text-[#FF6B5A] text-xs md:text-sm font-semibold tracking-[0.2em] mb-4 uppercase">
           Our Portfolio
         </p>
-        {/* Reduced Heading: text-5xl/8xl -> text-3xl/5xl */}
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 uppercase tracking-tight">
           VIDEO GALLERY
         </h1>
-        {/* Reduced Description: text-lg/xl -> text-sm/base */}
         <p className="text-gray-400 text-sm md:text-base max-w-2xl">
           Cinematic stories that inspire and captivate
         </p>
@@ -202,7 +175,6 @@ const VideoGallery: React.FC = () => {
 
       {/* Grid Gallery */}
       <div className="w-full">
-        {/* Reduced Row Height: 400px -> 250px/350px */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[250px] sm:auto-rows-[300px] md:auto-rows-[350px]">
           {videos.map((video) => (
             <div
@@ -212,10 +184,17 @@ const VideoGallery: React.FC = () => {
               } group relative overflow-hidden cursor-pointer bg-zinc-900`}
               onClick={() => setSelectedVideo(video)}
             >
-              {/* Thumbnail */}
+              {/* Thumbnail with fallback */}
               <img
                 src={video.thumbnail}
                 alt={video.title}
+                onError={(e) => {
+                  // Fallback to hqdefault if maxres fails
+                  const target = e.currentTarget;
+                  if (target.src.includes("maxresdefault")) {
+                    target.src = getYouTubeThumbnail(video.videoUrl, "hq");
+                  }
+                }}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-105"
                 loading="lazy"
               />
@@ -223,7 +202,7 @@ const VideoGallery: React.FC = () => {
               {/* Dark Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70 group-hover:opacity-80 transition-opacity duration-500" />
 
-              {/* Play Button - Reduced Size */}
+              {/* Play Button */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-14 h-14 md:w-16 md:h-16 bg-[#FF6B5A] hover:bg-[#ff5544] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 shadow-2xl">
                   <svg
@@ -236,7 +215,7 @@ const VideoGallery: React.FC = () => {
                 </div>
               </div>
 
-              {/* Provider Badge - Reduced Text */}
+              {/* Provider Badge */}
               {video.provider && (
                 <div className="absolute top-4 right-4 md:top-6 md:right-6 px-3 py-1.5 bg-black/80 backdrop-blur-sm border border-white/10">
                   <span className="text-white font-bold text-[10px] md:text-xs tracking-wider">
@@ -245,7 +224,7 @@ const VideoGallery: React.FC = () => {
                 </div>
               )}
 
-              {/* Title - Reduced Padding and Text Size */}
+              {/* Title */}
               <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
                 <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white uppercase tracking-tight group-hover:text-[#FF6B5A] transition-colors duration-300">
                   {video.title}
@@ -272,7 +251,7 @@ const VideoGallery: React.FC = () => {
             className="relative w-full max-w-5xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button - Reduced Size */}
+            {/* Close Button */}
             <button
               onClick={() => setSelectedVideo(null)}
               className="absolute -top-12 right-0 w-10 h-10 bg-white/10 hover:bg-[#FF6B5A] border border-white/10 hover:border-[#FF6B5A] flex items-center justify-center transition-all duration-200 group"
@@ -290,7 +269,7 @@ const VideoGallery: React.FC = () => {
                     data-plyr-provider="youtube"
                     data-plyr-embed-id={
                       selectedVideo.videoUrl.split("v=")[1]?.split("&")[0] ||
-                      selectedVideo.videoUrl.split("/").pop()
+                      selectedVideo.videoUrl.split("/").pop()?.split("?")[0]
                     }
                   ></div>
                 ) : selectedVideo.provider === "vimeo" ? (
@@ -306,7 +285,7 @@ const VideoGallery: React.FC = () => {
                 )}
               </div>
 
-              {/* Video Info - Reduced Padding and Text */}
+              {/* Video Info */}
               <div className="p-5 md:p-6 bg-black border-t border-white/10">
                 <div className="flex items-center justify-between">
                   <div>
