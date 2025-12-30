@@ -57,17 +57,17 @@ const Hero = () => {
             </p>
           </div>
           <div className="bg-zinc-900/50 backdrop-blur-sm border border-white/5 p-4 hover:border-[#FF6B5A]/30 transition-all duration-300">
-            <h3 className="text-2xl font-black text-white mb-1">10+</h3>
+            <h3 className="text-2xl font-black text-white mb-1">5+</h3>
             <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-wider font-semibold">
               Years Experience
             </p>
           </div>
-          <div className="bg-zinc-900/50 backdrop-blur-sm border border-white/5 p-4 hover:border-[#FF6B5A]/30 transition-all duration-300">
+          {/* <div className="bg-zinc-900/50 backdrop-blur-sm border border-white/5 p-4 hover:border-[#FF6B5A]/30 transition-all duration-300">
             <h3 className="text-2xl font-black text-white mb-1">50+</h3>
             <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-wider font-semibold">
               Awards Won
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
 

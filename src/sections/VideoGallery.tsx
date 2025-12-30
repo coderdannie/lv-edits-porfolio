@@ -50,11 +50,11 @@ const VideoGallery: React.FC = () => {
   const videos: Video[] = [
     {
       id: "1",
-      title: "GROOM AND BRIDE FIRST DANCE",
+      title: "A TIMELESS LOVE STORY",
       thumbnail: getYouTubeThumbnail(
-        "https://youtu.be/aRmftlic15w?si=EkvHfC-Tn0UoVrOy"
+        "https://youtu.be/iwPM7C38sGk?si=yccNX9yZxbcbRlXQ"
       ),
-      videoUrl: "https://youtu.be/aRmftlic15w?si=EkvHfC-Tn0UoVrOy",
+      videoUrl: "https://youtu.be/iwPM7C38sGk?si=yccNX9yZxbcbRlXQ",
       provider: "youtube",
       span: "col-span-1",
     },
@@ -70,17 +70,17 @@ const VideoGallery: React.FC = () => {
     },
     {
       id: "3",
-      title: "WEDDING LOVE STORY (A)",
+      title: "GROOM & BRIDE FIRST DANCE",
       thumbnail: getYouTubeThumbnail(
-        "https://youtu.be/IsetOq3d-WE?si=Qb1tM6pIhcpFvEEh"
+        "https://youtu.be/aRmftlic15w?si=13dDZrvw1JqbTEzX"
       ),
-      videoUrl: "https://youtu.be/IsetOq3d-WE?si=Qb1tM6pIhcpFvEEh",
+      videoUrl: "https://youtu.be/aRmftlic15w?si=13dDZrvw1JqbTEzX",
       provider: "youtube",
       span: "col-span-2",
     },
     {
       id: "4",
-      title: "WEDDING LOVE STORY (B)",
+      title: "LUXURY WEDDING TRAILER",
       thumbnail: getYouTubeThumbnail(
         "https://youtu.be/dUoIrOXESw8?si=xdisoG65em6oVpqh"
       ),
@@ -90,11 +90,31 @@ const VideoGallery: React.FC = () => {
     },
     {
       id: "5",
-      title: "WEDDING LOVE STORY (C)",
+      title: "EXCLUSIVE WEDDING TRAILER",
       thumbnail: getYouTubeThumbnail(
         "https://youtu.be/d0afMBZKUr0?si=P3NntERvPYRhRPyM"
       ),
       videoUrl: "https://youtu.be/d0afMBZKUr0?si=P3NntERvPYRhRPyM",
+      provider: "youtube",
+      span: "col-span-1",
+    },
+    {
+      id: "6",
+      title: "OPULENT WEDDING TRAILER",
+      thumbnail: getYouTubeThumbnail(
+        "https://youtu.be/IsetOq3d-WE?si=P2qFVkk0FmoXHTmi"
+      ),
+      videoUrl: "https://youtu.be/IsetOq3d-WE?si=P2qFVkk0FmoXHTmi",
+      provider: "youtube",
+      span: "col-span-2",
+    },
+    {
+      id: "7",
+      title: "BIRTHDAY EVENT HIGHLIGHT",
+      thumbnail: getYouTubeThumbnail(
+        "https://youtu.be/SwbdRLAMQ9U?si=Ex-fZJJJhXna9N_G"
+      ),
+      videoUrl: "https://youtu.be/SwbdRLAMQ9U?si=Ex-fZJJJhXna9N_G",
       provider: "youtube",
       span: "col-span-2",
     },
