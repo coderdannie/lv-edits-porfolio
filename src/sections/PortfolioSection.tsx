@@ -16,27 +16,27 @@ const getThumbnail = (id: string) =>
 const videoServices: VideoCategory[] = [
   {
     id: 1,
-    title: "Luxe Party Highlight",
-    category: "Events & Nightlife",
+    title: "HELPING CREATORS TELL BETTER STORIES",
+    category: "Narrative & Creative Direction",
     description:
-      "Capturing the glamour and electric atmosphere of high-end events. Dynamic editing that showcases the venue, the people, and the vibe.",
-    youtubeId: "BblfwViyRYY",
+      "Empowering creators through intentional visual storytelling. We transform raw concepts into compelling narratives that engage audiences and build lasting brand identities.",
+    youtubeId: "Jh7RtAvEK84",
   },
   {
     id: 2,
-    title: "Good Time Reels",
-    category: "Lifestyle",
+    title: "PURE H6 POWER. NO FILTERS. JUST SPEED",
+    category: "Automotive & Performance",
     description:
-      "Capturing the energy of the moment. Fast cuts, beat-syncing, and vibrant color grading that highlights the best memories.",
-    youtubeId: "CE8E3ssZ-DE",
+      "A raw, high-octane look at mechanical excellence. Focusing on the sound, speed, and sleek aesthetics of high-performance vehicles through cinematic motion tracking.",
+    youtubeId: "J1vhC1f-k3c",
   },
   {
     id: 3,
-    title: "Travel Vlog",
-    category: "Travel",
+    title: "SHORT FORM CONTENT",
+    category: "Social Media & Reels",
     description:
-      "Cinematic travel diaries that transport the viewer. Immersive soundscapes and scenic storytelling that documents the journey.",
-    youtubeId: "LBWMKHrOSrs",
+      "Engineered for high retention and viral potential. Fast-paced, attention-grabbing edits optimized for TikTok, Reels, and Shorts to keep your audience scrolling for more.",
+    youtubeId: "nrJZGAkejVQ",
   },
 ];
 
