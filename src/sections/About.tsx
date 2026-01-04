@@ -129,13 +129,13 @@ const ServicesSection: React.FC = () => {
         <p className="text-[#FF6B5A] text-xs md:text-sm font-semibold tracking-[0.2em] mb-4 uppercase">
           What We Offer
         </p>
-        {/* Scaled down Heading */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 uppercase tracking-tight">
-          OUR SERVICES
+          POST-PRODUCTION <span className="text-[#FF6B5A]">EXPERTISE</span>
         </h2>
         {/* Scaled down Description */}
         <p className="text-sm md:text-base text-gray-400 max-w-2xl">
-          Professional videography solutions crafted for your vision
+          Precision editing and cinematic storytelling designed to elevate your
+          raw footage into high-performance visual content.
         </p>
       </div>
 
