@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Video, Film, Camera, Sparkles, Play, ArrowRight } from "lucide-react";
+import { Scissors, Zap, Share2, Tv, Layers, Youtube } from "lucide-react";
 import ContactModal from "../components/Modal/ContactModal";
 
 interface Service {
@@ -19,97 +20,100 @@ const ServicesSection: React.FC = () => {
   const services: Service[] = [
     {
       id: "1",
-      title: "WEDDING FILMS",
+      title: "CREATOR STORYTELLING",
       description:
-        "Cinematic storytelling that captures every precious moment of your special day",
+        "Transforming raw vlogs and personality-driven footage into engaging cinematic narratives.",
       features: [
-        "Full day coverage",
-        "Multiple camera angles",
-        "Drone footage",
-        "Highlight reel + full ceremony",
+        "Narrative pacing",
+        "Sound design & SFX",
+        "Custom motion graphics",
+        "Color grading",
       ],
-      icon: <Sparkles className="w-5 h-5" />,
+      icon: <Youtube className="w-5 h-5" />,
       image:
-        "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
-      price: "FROM $2,500",
+        "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80",
+      price: "FROM $500/Vid",
     },
     {
       id: "2",
-      title: "CORPORATE VIDEOS",
+      title: "AUTOMOTIVE & SPEED",
       description:
-        "Professional brand stories that engage audiences and drive results",
+        "High-octane editing for car films, focusing on rhythm, engine acoustics, and motion blur.",
       features: [
-        "Brand documentaries",
-        "Product launches",
-        "Team interviews",
-        "Social media content",
+        "Speed ramping",
+        "Engine sound design",
+        "Dynamic transitions",
+        "Color matching",
       ],
-      icon: <Video className="w-5 h-5" />,
+      icon: <Zap className="w-5 h-5" />,
       image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-      price: "FROM $1,800",
+        "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
+      price: "FROM $800/Vid",
     },
     {
       id: "3",
-      title: "MUSIC VIDEOS",
-      description: "Creative visual experiences that bring your music to life",
+      title: "SHORT FORM VIRAL",
+      description:
+        "Highly addictive edits for TikTok, Reels, and YouTube Shorts designed for maximum retention.",
       features: [
-        "Concept development",
-        "Location scouting",
-        "Color grading",
-        "Performance footage",
+        "Dynamic captions",
+        "B-roll integration",
+        "Fast-paced cutting",
+        "Viral trend hooks",
       ],
-      icon: <Film className="w-5 h-5" />,
+      icon: <Share2 className="w-5 h-5" />,
       image:
-        "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80",
-      price: "FROM $3,000",
+        "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80",
+      price: "FROM $200/Vid",
     },
     {
       id: "4",
-      title: "COMMERCIAL PRODUCTION",
+      title: "COMMERCIAL POST",
       description:
-        "High-impact advertisements that convert viewers into customers",
+        "Polished, broadcast-ready editing for brands looking to convert viewers into customers.",
       features: [
-        "30-60 second spots",
-        "Storyboarding",
-        "Professional actors",
-        "Multi-platform delivery",
+        "Product focus edits",
+        "Professional VO sync",
+        "Call-to-action GFX",
+        "Multi-platform aspect ratios",
       ],
-      icon: <Camera className="w-5 h-5" />,
+      icon: <Tv className="w-5 h-5" />,
       image:
         "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80",
-      price: "FROM $4,000",
+      price: "FROM $1,200",
     },
     {
       id: "5",
-      title: "EVENT COVERAGE",
+      title: "RAW TO MASTER",
       description:
-        "Dynamic documentation of conferences, concerts, and celebrations",
+        "Complete documentary and event post-production from multi-cam syncing to final delivery.",
       features: [
-        "Live streaming options",
-        "Multi-cam setups",
-        "Same-day highlights",
-        "Full event edit",
+        "Multi-cam switching",
+        "Audio cleaning/leveling",
+        "Long-form assembly",
+        "Subtitle generation",
       ],
-      icon: <Play className="w-5 h-5" />,
+      icon: <Layers className="w-5 h-5" />,
+      // Updated active image link (Showing a professional editing desk)
       image:
-        "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
+        "https://images.unsplash.com/photo-1535016120720-40c646bebbdc?w=800&q=80",
       price: "FROM $1,500",
     },
     {
       id: "6",
-      title: "DOCUMENTARY FILMS",
+      title: "VFX & RETOUCHING",
       description:
-        "Compelling narratives that inform, inspire, and create lasting impact",
+        "Specialized visual effects, green screen removal, and high-end beauty retouching.",
       features: [
-        "Research & planning",
-        "Interview setup",
-        "Archival footage",
-        "Long-form storytelling",
+        "Object removal",
+        "Sky replacement",
+        "Green screen keying",
+        "Advanced masking",
       ],
-      icon: <Film className="w-5 h-5" />,
+      icon: <Scissors className="w-5 h-5" />,
+      // Updated active image link (Showing digital visual effects work)
       image:
-        "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80",
+        "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
       price: "CUSTOM QUOTE",
     },
   ];
